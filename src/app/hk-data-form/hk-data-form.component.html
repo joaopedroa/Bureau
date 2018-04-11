@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="hk-header-text text-capitalize">
+            {{Title}}
+        </div>
+    </div>
+    <div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit(form, $event)" style="width:100%;">
+            <div class="form-row" *ngFor="let cfg of fieldsConfig">
+                <div *ngFor="let fd of cfg.fields">
+                    <label>{{fd.fieldLabel}}</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend" *ngIf="fd.fieldType == 'email'">
+                            <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                        </div>
+                        <input type={{fd.fieldType}} class="form-control is-valid" placeholder="{{fd.fieldPlaceHolder}}" formControlName="{{fd.fieldName}}">
+                    </div>
+                </div>
+            </div>
+            <button *ngFor="let dynamicButton of dynamicButtons" class={{dynamicButton.class}} id={{dynamicButton.id}} type={{dynamicButton.type}} (click)="doCustomButtonClick(form, $event, dynamicButton.id)">{{dynamicButton.text}}</button>
+        </form>
+    </div>
+</div>

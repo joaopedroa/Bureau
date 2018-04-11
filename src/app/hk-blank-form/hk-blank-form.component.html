@@ -1,0 +1,275 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="hk-header-text text-capitalize">
+            {{Title}}
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class='row'>
+            <div class='col-xs-12' id='idSubtitle'>
+                <b>{{subtitle}}</b>
+            </div>
+        </div>
+        <div class='row' id='idTitlePesquisa'>
+            <div class='col-xs-12'>
+                <h4>Defina a dúvida existente:</h4>
+            </div>
+        </div>
+
+        <ul class="list-group">         
+                <li class="list-group-item">
+                        <b id = 'titleFundacao'>PROJETO:</b>
+                    <label class="switch">
+                        <input type="checkbox" (click) = 'clickToggleProjeto()'>
+                        <span class="slider round"></span>                        
+                      </label> 
+                      
+                </li> 
+            
+            <div id = 'tipoProjeto' *ngIf = 'validaProjeto === "show"'>
+                <div class='row'>
+                    <div class='col-xs-12'>
+                        <b id='idAcabamento'>QUAL O TIPO DO PROJETO?</b>
+                    </div>
+                </div>
+                <div class='row' id='idSubAcabamentos'>
+                    <div class='col-xs-2'>  
+                            <label class="switch">
+                                      <input type="checkbox"  (click) = 'clickArquitetonico()'>
+                                      <span class="slider round"></span>                     
+                            </label>                          
+                    </div>
+                    <div class = 'col-md-2'>
+                        <span id = 'titleArquitetonico'>ARQUITETÔNICO</span>
+                    </div>
+                    <div class='col-xs-2'>
+                            <label class="switch">
+                                    <input type="checkbox" (click) = 'clickEstrutural()'>
+                                    <span class="slider round"></span>                        
+                            </label>
+                    </div>
+                    <div class='col-md-4'>
+                            <span id = 'titleEstrutural'>ESTRUTURAL</span>
+                    </div>
+
+                </div>
+            </div>
+           
+                <li class="list-group-item">
+                        <b id = 'titleSistemaEstruturais'>SISTEMAS ESTRUTURAIS:</b>
+                    <label class="switch">
+                            <input type="checkbox" (click) = 'clickToggleSistemaEstrutural()'>
+                            <span class="slider round"></span>                        
+                    </label>                
+                </li>
+
+                <div id = 'subGroupdSistemasEstruturais' *ngIf = 'sistemaEstrutural === "show"'>
+                    <div class = 'row' style = 'margin-left:25px'>
+                        <div class = 'col-xs-2'>
+                                <label class="switch">
+                                        <input type="checkbox" (click) = 'clickConcretoArmado()'>
+                                        <span class="slider round"></span>                        
+                                </label>  
+                        </div>
+                        <div class = 'col-md-2'>
+                                <span class = 'subTitle'>CONCRETO ARMADO</span>
+                        </div>
+                        <div class = 'col-xs-2'>
+                                <label class="switch">
+                                        <input type="checkbox" (click) = 'clickAlvenaria()'>
+                                        <span class="slider round"></span>                        
+                                </label>  
+                        </div>
+                        <div class = 'col-md-2'>
+                                <span class = 'subTitle'>ALVENARIA ESTRUTURAL </span>
+                        </div>
+                        <div class = 'col-xs-2'>
+                                <label class="switch">
+                                        <input type="checkbox" (click) = 'clickConcreto()'>
+                                        <span class="slider round"></span>                        
+                                </label>  
+                        </div>
+                        <div class = 'col-md-4'>
+                                <span class = 'subTitle'>CONCRETO PROTENDIDO </span>
+                        </div>
+                        
+                    </div>
+                </div>
+           
+            
+                <li class="list-group-item">
+                        <b id = 'titleCalculoEstrutura'>CÁLCULO DA ESTRUTURA</b>
+                        <label class="switch">
+                                <input type="checkbox" (click) = 'clickToggleCalculoEstrutura()'>
+                                <span class="slider round"></span>                        
+                        </label>          
+                </li>
+
+                <div id = 'calculoEstrutura' *ngIf = 'calculoEstrutura === "show"'>
+                    <div class = 'row' style = 'margin-left:25px'>
+                        <div class = 'col-xs-2'>
+                                <label class="switch" >
+                                        <input type="checkbox" (click) = 'clickPilares()'>
+                                        <span class="slider round"></span>                        
+                                </label>  
+                        </div>
+                        <div class = 'col-md-4'>
+                                <span class = 'subTitle'>POSICIONAMENTO DOS PILARES E SUAS DIMENSÕES </span>
+                        </div>
+                        <div class = 'col-xs-2'>
+                                <label class="switch" >
+                                        <input type="checkbox" (click) = 'clickLajes()'>
+                                        <span class="slider round"></span>                        
+                                </label>  
+                        </div>
+                        <div class = 'col-md-4'>
+                                <span class = 'subTitle'>TIPOS DE LAJES E ESPESSURAS </span>
+                        </div>
+                    </div>
+                </div>
+            
+            
+                <li class="list-group-item">
+                        <b id = 'titleEmissaoProjeto'>EMISSÃO DO PROJETO</b>
+                        <label class="switch">
+                                <input type="checkbox" (click) = 'clickToggleEmissaoProjeto()'>
+                                <span class="slider round"></span>                        
+                        </label>      
+                </li>
+
+                <div id = 'subGroupdEmissao' *ngIf = 'emissaoProjeto === "show"'>
+                    <div class = 'row'  style = 'margin-left:25px'>
+                            <div class = 'col-xs-2'>
+                                    <label class="switch" >
+                                            <input type="checkbox" (click) = 'clickMemoria()'>
+                                            <span class="slider round"></span>                        
+                                    </label>  
+                            </div>
+                            <div class = 'col-md-2'>
+                                    <span class = 'subTitle'>MEMÓRIA DE CÁLCULO </span>
+                            </div>
+                            <div class = 'col-xs-2'>
+                                    <label class="switch" >
+                                            <input type="checkbox" (click) = 'clickMemorial()'>
+                                            <span class="slider round"></span>                        
+                                    </label>  
+                            </div>
+                            <div class = 'col-md-2'>
+                                    <span class = 'subTitle'>MEMORIAL DESCRITIVO </span>
+                            </div>
+                            <div class = 'col-xs-2'>
+                                    <label class="switch" >
+                                            <input type="checkbox" (click) = 'clickPlanilha()'>
+                                            <span class="slider round"></span>                        
+                                    </label>  
+                            </div>
+                            <div class = 'col-md-4'>
+                                    <span class = 'subTitle'>PLANILHA DE QUANTIDADES </span>
+                            </div>
+                    </div>
+                </div>
+            
+            
+                <li class="list-group-item">
+                        <b id = 'titleLevantamentoTopografico'>LEVANTAMENTO TOPOGRÁFICO</b>
+                        <label class="switch">
+                                <input type="checkbox" (click) = 'clickLevantamento()'>
+                                <span class="slider round"></span>                        
+                        </label>   
+                </li>
+            
+            
+                <li class="list-group-item">
+                        <b id = 'titleLegalizaçao'>LEGALIZAÇÃO DA OBRA</b>
+                        <label class="switch">
+                                <input type="checkbox" (click) = 'clickToggleLegalizacao()'>
+                                <span class="slider round"></span>                        
+                        </label>   
+                </li>
+
+                <div *ngIf = 'legalizacao === "show"'>
+                        <div class='row' style = 'margin-left:25px;margin-bottom:15px;'>
+                                <div class='col-xs-12'>
+                                    <b id='idLegalizacao'>QUAL O PROCEDIMENTO?</b>
+                                </div>
+                        </div>
+                        <div class = 'row' style = 'margin-left:25px'>
+                                <div class = 'col-xs-2'>
+                                        <label class="switch" >
+                                                <input type="checkbox" (click) = 'clickAlvara()'>
+                                                <span class="slider round"></span>                        
+                                        </label>  
+                                </div>
+                                <div class = 'col-md-3'>
+                                        <span class = 'subTitle'>ALVARÁ DE CONSTRUÇÃO </span>
+                                </div>
+                                <div class = 'col-xs-2'>
+                                        <label class="switch" >
+                                                <input type="checkbox" (click) = 'clickHabite()'>
+                                                <span class="slider round"></span>                        
+                                        </label>  
+                                </div>
+                                <div class = 'col-md-4'>
+                                        <span class = 'subTitle'>CVCO / HABITE-SE </span>
+                                </div>
+                        </div>
+
+                </div>
+            
+        </ul>
+
+        <div *ngIf = 'respostaProjeto === "show"' class="panel panel-default">
+                <div class="panel-header">Projeto Arquiteônico</div>
+                <div class="panel-body"> <p>{{projeto}}</p></div>           
+        </div>
+        <div *ngIf = 'respostaProjetoEstrutural === "show"' class="panel panel-default">
+                <div class="panel-header">Projeto Estrutural</div>
+                <div class="panel-body"> <p>{{projetoEstrutural}}</p></div>           
+        </div>
+        <div *ngIf = 'respostaConcretoArmado === "show"' class="panel panel-default">
+                <div class="panel-header">Concreto Armado</div>
+                <div class="panel-body"> <p>{{concretoArmado}}</p></div>           
+        </div>
+        <div *ngIf = 'respostaAlvenaria === "show"' class="panel panel-default">
+                <div class="panel-header">Alvenaria Estrutural</div>
+                <div class="panel-body"> <p>{{alvenaria}}</p></div>           
+        </div>
+        <div *ngIf = 'respostaConcreto === "show"' class="panel panel-default">
+                <div class="panel-header">Concreto Protendido</div>
+                <div class="panel-body"> <p>{{concreto}}</p></div>           
+        </div>
+        <div *ngIf = 'respostaPilares === "show"' class="panel panel-default">
+                <div class="panel-header">POSICIONAMENTO DOS PILARES E SUAS DIMENSÕES </div>
+                <div class="panel-body"> <p><img src = "../assets/images/calculo.jpg"></p></div>           
+        </div>
+        <div *ngIf = 'respostaLajes === "show"' class="panel panel-default">
+                <div class="panel-header">TIPOS DE LAJES E ESPESSURAS</div>
+                <div class="panel-body"> <p>{{lajes}}</p></div>           
+        </div>
+        <div *ngIf = 'respostaMemoria === "show"' class="panel panel-default">
+                <div class="panel-header">Memória de Cálculo</div>
+                <div class="panel-body"> <p>{{memoria}}</p></div>           
+        </div>
+        <div *ngIf = 'respostaMemorial === "show"' class="panel panel-default">
+                <div class="panel-header">Memorial Descritivo</div>
+                <div class="panel-body"> <p>{{memorial}}</p></div>           
+        </div>
+        <div *ngIf = 'respostaPlanillha === "show"' class="panel panel-default">
+                <div class="panel-header">Planilha de Quantidades</div>
+                <div class="panel-body"> <p><img src = "../assets/images/planilha.png"></p></div>           
+        </div>
+        <div *ngIf = 'respostaLevantamento === "show"' class="panel panel-default">
+                <div class="panel-header">Levantamento Topográfico</div>
+                <div class="panel-body"> <p>{{levantamento}}</p><img src = "../assets/images/levantameto.png"></div>           
+        </div>
+        <div *ngIf = 'respostaAlvara === "show"' class="panel panel-default">
+                <div class="panel-header">Alvará de Construção</div>
+                <div class="panel-body"> <p>{{alvara}}</p><a style = 'color:blue;'>http://www.forumdaconstrucao.com.br/conteudo.php?a=43&Cod=1219</a></div>           
+        </div> 
+        <div *ngIf = 'respostaHabite === "show"' class="panel panel-default">
+                <div class="panel-header">Alvará de Construção</div>
+                <div class="panel-body"> <p>{{habite}}</p></div>           
+        </div> 
+    <div>
+    </div>
+</div>

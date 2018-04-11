@@ -1,0 +1,22 @@
+<a href="#sidebar" data-toggle="collapse">
+    <i class="fa fa-navicon fa-lg"></i>
+</a>
+<div cass="col-md-3 col-xs-1 p-l-0 p-r-0 collapse in" id="sidebar">
+    <div class="list-group panel">
+        <div *ngFor="let menuItem of itens">
+            <a href="{{menuItem.href}}" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
+                <i class="{{menuItem.icon}}"></i>
+                <span class="hidden-sm-down">{{menuItem.caption}}</span>
+            </a>
+            <div *ngFor="let subMenu of menuItem.submenus">
+                <div class="collapse" id="{{subMenu.id}}">
+                    <div *ngFor="let subMenuItem of subMenu.items">
+                        <a href="{{subMenuItem.href}}" class="list-group-item" routerLink="{{subMenuItem.routerLink}}">
+                            {{subMenuItem.caption}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

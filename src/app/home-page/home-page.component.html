@@ -1,0 +1,87 @@
+<main class="col-md-9 col-xs-11 p-l-2 p-t-2">
+
+    <div class="row">
+        <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="button"
+            aria-pressed="false"
+            autocomplete="off"
+            (click)="toggleLogin()"
+        >
+            Login/Logoff
+        </button>
+        <button
+            style="margin-left: 10px;"
+            type="button"
+            class="btn btn-primary"
+            data-toggle="button"
+            aria-pressed="false"
+            autocomplete="off"
+            (click)="evocaGet()"
+        >
+            Evoca Get
+        </button>
+        <button
+            style="margin-left: 10px;"
+            type="button"
+            class="btn btn-primary"
+            data-toggle="button"
+            aria-pressed="false"
+            autocomplete="off"
+            (click)="evocaPost()"
+        >
+            Evoca Post
+        </button>
+    </div>
+
+    <hr>
+    <div class="page-header hk-center-text">
+        <h1>
+            Este é um site Template para Statup de projetos Henko
+        </h1>
+    </div>
+    <p class="lead">
+        Este é um aplicativo Angular com bibliotecas iniciais, boas práticas e inicializadores da Henko.
+    </p>
+    <p>
+        Para se utilizar, deve-se criar um clone e particularizar, depois é necessário o versionamento, conforme manual de processos e procedimentos da Henko.
+    </p>
+
+    <div class="hk-center-text">
+        <h1>Bem vindo ao aplicativo: {{ title }}!</h1>
+        <img
+            width="300"
+            alt="Angular Logo"
+            src="assets/images/logo.png"
+        >
+    </div>
+
+    <hr>
+    <h2>Componentes inclusos neste template:</h2>
+    <hr>
+    Fonte Awesome:
+    <i class="fa fa-cut"></i>
+    <br>
+    Instalado pelo link: https://www.npmjs.com/package/font-awesome
+    <hr>
+    Bootstrap 4: http://getbootstrap.com/
+    <br>
+    <span class="badge badge-default">Default</span>
+    <span class="badge badge-primary">Primary</span>
+    <span class="badge badge-success">Success</span>
+    <span class="badge badge-info">Info</span>
+    <span class="badge badge-warning">Warning</span>
+    <span class="badge badge-danger">Danger</span>
+    <hr>
+    <br>
+    Angular Bootstrap: https://ng-bootstrap.github.io
+    <br>
+    <ngb-rating [(rate)]="currentRate"></ngb-rating>
+    <p>
+        Rate:
+        <b>{{currentRate}}</b>
+    </p>
+    <br>
+    Menu lateral retirado de: https://www.codeply.com/go/GQ1Mz8RqZB/bootstrap-4-sidebar-menu-(toggleable)
+</main>

@@ -1,0 +1,17 @@
+<app-hk-loading-spinner [hidden]="!inTransaction"></app-hk-loading-spinner>
+<div class="container-fluid">
+    <div *ngIf="isLogged()">
+        <span class="badge badge-success">Logado</span>
+    </div>
+    <div *ngIf="!isLogged()">
+        <span class="badge badge-warning">Não Logado</span>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <app-side-menu></app-side-menu>
+        </div>
+        <div class="col-md-10">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

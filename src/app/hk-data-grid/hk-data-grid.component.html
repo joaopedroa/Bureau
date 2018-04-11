@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row justify-content-md-center">
+            <div class="col-md-11">
+                <form>
+                    <div class="input-group">
+                        <input type="text" name="search" [(ngModel)]="strsearch" class="form-control" (keyup)="doFilter()" placeholder="Nome do Profissional" required>
+                        <span class="input-group-btn">
+                          <button class="btn btn-secondary" type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                          </button>
+                          <button class="btn btn-secondary" type="button">
+                            <i class="fa fa-filter" aria-hidden="true"></i>
+                          </button>
+                        </span>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <tr>
+                <th *ngFor="let col of columns" width="{{col.widht}}%">{{col.caption}}</th>
+                <th>
+                    <span class="theme-color float-right">
+                    <i class="fa fa-plus" aria-hidden="true" (click)="doAddRow()"></i>
+                  </span>
+                </th>
+            </tr>
+            <tr *ngFor="let dataRow of dataTable | paginate: { itemsPerPage: itemsPage, currentPage: p }" (click)="doSelectRow(dataRow)">
+                <td *ngFor="let col of columns">{{getFieldContent(dataRow, col.fieldName)}}</td>
+                <td>
+                    <span class="float-right">
+                      <i class="fa fa-pencil theme-color mr-3" aria-hidden="true" (click)="doEditRow(dataRow)"></i>
+                      <i class="fa fa-trash-o" aria-hidden="true" (click)="doDelRow(dataRow)"></i>
+                    </span>
+                </td>
+            </tr>
+
+        </table>
+        <pagination-controls style="text-align: center" (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>
